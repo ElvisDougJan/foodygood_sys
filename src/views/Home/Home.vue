@@ -24,7 +24,7 @@
               <v-list-tile-title class="text-black">Insumo</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile :to="{name: 'CadastroMesas'}">
+          <v-list-tile class="opcao-selecionada" :to="{name: 'CadastroMesas'}">
             <v-list-tile-action>
               <v-icon>tab</v-icon>
             </v-list-tile-action>
