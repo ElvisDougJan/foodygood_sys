@@ -25,7 +25,7 @@
           </v-layout>
           <v-layout row wrap>
             <v-flex md12>
-              <v-textarea name="name" label="Descricao" id="id" v-model="usuario.descricao"></v-textarea>
+              <v-textarea name="name" label="Descricao" id="id" v-model="insumo.descricao"></v-textarea>
             </v-flex>
           </v-layout>
         </v-card>
