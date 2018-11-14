@@ -16,7 +16,7 @@
               <v-list-tile-title class="text-black">Usuário</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile :to="{name: 'CadastroInsumos'}">
+          <v-list-tile class="opcao-selecionada" :to="{name: 'CadastroInsumos'}">
             <v-list-tile-action>
               <v-icon>extension</v-icon>
             </v-list-tile-action>
@@ -40,7 +40,7 @@
               <v-list-tile-title class="text-black">Itens</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile :to="{name: CadastroProdutos}">
+          <v-list-tile class="opcao-selecionada" :to="{name: 'CadastroProdutos'}">
             <v-list-tile-action>
               <v-icon>local_dining</v-icon>
             </v-list-tile-action>
@@ -112,6 +112,7 @@
   .v-navigation-drawer .v-list {
     background: transparent !important;
   }
+
   .menu-lateral {
     background-image: url("/../../static/img/sidebar-img.jpg");
     background-position: absolute;
@@ -119,13 +120,14 @@
     background-color: #888 !important;
     background-blend-mode: multiply;
   }
+
   .menu-cadastro {
     background-color: #FFCA28;
     padding: 10px;
     border-radius: 20px
   }
 
-  .opcao-selecionada {
+  .opcao-selecionada:active {
     background-color: #FFF;
     border-radius: 10px
   }
