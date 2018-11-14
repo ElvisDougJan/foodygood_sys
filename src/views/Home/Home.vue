@@ -16,7 +16,7 @@
               <v-list-tile-title class="text-black">Usuário</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile :to="{name: 'CadastroInsumos'}">
+          <v-list-tile class="opcao-selecionada" :to="{name: 'CadastroInsumos'}">
             <v-list-tile-action>
               <v-icon>extension</v-icon>
             </v-list-tile-action>
@@ -125,7 +125,7 @@
     border-radius: 20px
   }
 
-  .opcao-selecionada {
+  .opcao-selecionada:active {
     background-color: #FFF;
     border-radius: 10px
   }
