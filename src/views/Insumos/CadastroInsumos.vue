@@ -9,22 +9,22 @@
       <v-card class="pa-3">
         <v-card class="px-5">
           <v-layout row wrap>
-            <v-flex md2>
+            <v-flex md2 xs12>
               <v-text-field name="name" label="Estoque" type="number" id="id" v-model="insumo.estoque"></v-text-field>
             </v-flex>
             <v-flex md1>
             </v-flex>
-            <v-flex md2>
+            <v-flex md2 xs12>
               <v-text-field name="name" label="Unidade" id="id" v-model="insumo.unidade"></v-text-field>
             </v-flex>
             <v-flex md1>
             </v-flex>
-            <v-flex md6>
+            <v-flex md6 xs12>
               <v-text-field name="name" label="Preco" type="textarea" id="id" v-model="insumo.preco"></v-text-field>
             </v-flex>
           </v-layout>
           <v-layout row wrap>
-            <v-flex md12>
+            <v-flex md12 xs12>
               <v-textarea name="name" label="Descricao" id="id" v-model="insumo.descricao"></v-textarea>
             </v-flex>
           </v-layout>

@@ -8,17 +8,24 @@
       </v-toolbar>
       <v-card class="pa-3">
         <v-layout row wrap class="justify-center">
-          <v-card v-for="(item, index) in mesas" :key="index" width="150" height="200" class="ma-2">
+          <v-card v-for="(item, index) in mesas" :key="index" width="150" height="280" class="ma-2">
             <v-card-title class="justify-center titulo-card">
               MESA Nº
             </v-card-title>
-            <v-card-text class="numero-mesa">
-              <button style="font-size: 80px;" @click="teste()">{{item}}</button>
-            </v-card-text>
+            <v-layout row wrap>
+              <v-card-text class="numero-mesa">
+                <button style="font-size: 80px;" @click="adicionaPedido()">{{item}}</button>
+              </v-card-text>
+            </v-layout>
+            <v-layout row wrap>
+              <v-card-text>
+                <b>Quantidade de pedidos:</b> 15
+              </v-card-text>
+            </v-layout>
           </v-card>
         </v-layout>
         <v-layout row wrap justify-end>
-          <v-btn color="success mt-3" @click="">Salvar</v-btn>
+          <v-btn color="success mt-3" @click="adicionarMesa()">Adicionar mesa</v-btn>
         </v-layout>
       </v-card>
     </v-card>
@@ -31,29 +38,29 @@
             </v-card-title>
           </v-layout>
         </v-toolbar>
-        <v-card class="px-5">
+        <v-card flat class="px-5">
           <v-layout row wrap>
-            <v-flex md5>
+            <v-flex md5 xs12>
               <v-text-field name="name" label="Numero do pedido" type="number" id="id"></v-text-field>
             </v-flex>
             <v-spacer></v-spacer>
-            <v-flex md5>
+            <v-flex md5 xs12>
               <v-text-field name="name" label="Valor total" type="number" id="id"></v-text-field>
             </v-flex>
           </v-layout>
           <v-layout row wrap>
-            <v-flex md5>
+            <v-flex md5 xs12>
               <v-text-field name="name" label="CPF" type="number" id="id"></v-text-field>
             </v-flex>
             <v-spacer></v-spacer>
-            <v-flex md5>
+            <v-flex md5 xs12>
               <v-text-field name="name" label="Funcionario responsável" id="id"></v-text-field>
             </v-flex>
           </v-layout>
         </v-card>
         <v-layout row wrap justify-space-between>
-          <v-btn color="error mt-3" @click="fecharDialog()">Voltar</v-btn>
-          <v-btn color="success mt-3" @click="salvarPedido()">Salvar pedido</v-btn>
+          <v-btn color="error" @click="fecharDialog()">Voltar</v-btn>
+          <v-btn color="success" @click="salvarPedido()">Salvar pedido</v-btn>
         </v-layout>
       </v-card>
     </v-dialog>
@@ -69,13 +76,17 @@
       dialog: false
     }),
     methods: {
-      teste() {
+      adicionaPedido() {
         console.log('Clicou')
         this.dialog = true
       },
 
       fecharDialog() {
         this.dialog = false
+      },
+
+      adicionarMesa() {
+        this.mesas.push(this.mesas.length+1)
       }
     }
   }
