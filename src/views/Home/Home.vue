@@ -8,7 +8,7 @@
               <v-list-tile-title>Cadastros</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile class="opcao-selecionada" :to="{name: 'CadastroUsuario'}">
+          <v-list-tile  :to="{name: 'CadastroUsuario'}">
             <v-list-tile-action>
               <v-icon>person</v-icon>
             </v-list-tile-action>
@@ -16,7 +16,7 @@
               <v-list-tile-title class="text-black">Usuário</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile class="opcao-selecionada" :to="{name: 'CadastroInsumos'}">
+          <v-list-tile  :to="{name: 'CadastroInsumos'}">
             <v-list-tile-action>
               <v-icon>extension</v-icon>
             </v-list-tile-action>
@@ -24,12 +24,12 @@
               <v-list-tile-title class="text-black">Insumo</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile class="opcao-selecionada" :to="{name: 'CadastroMesas'}">
+          <v-list-tile  :to="{name: 'CadastroPedidos'}">
             <v-list-tile-action>
               <v-icon>tab</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title class="text-black">Mesa</v-list-tile-title>
+              <v-list-tile-title class="text-black">Pedidos</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
           <v-list-tile :to="{name: 'CadastroItens'}">
@@ -40,7 +40,7 @@
               <v-list-tile-title class="text-black">Itens</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile class="opcao-selecionada" :to="{name: 'CadastroProdutos'}">
+          <v-list-tile  :to="{name: 'CadastroProdutos'}">
             <v-list-tile-action>
               <v-icon>local_dining</v-icon>
             </v-list-tile-action>
@@ -52,21 +52,9 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar app :clipped-left="clipped" color="black">
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <!-- <v-btn icon @click.stop="miniVariant = !miniVariant">
-          <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
-        </v-btn> -->
-      <!-- <v-btn icon @click.stop="clipped = !clipped">
-          <v-icon>web</v-icon>
-        </v-btn> -->
-      <!-- <v-btn icon @click.stop="fixed = !fixed">
-          <v-icon>remove</v-icon>
-        </v-btn> -->
+      <v-toolbar-side-icon dark @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title><span style="color:white">Sistema FoodyGood</span></v-toolbar-title>
       <v-spacer></v-spacer>
-      <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-          <v-icon>menu</v-icon>
-        </v-btn> -->
     </v-toolbar>
     <v-content>
       <router-view />

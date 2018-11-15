@@ -6,7 +6,11 @@ import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
-Vue.use(Vuetify)
+Vue.use(Vuetify, {
+  theme: {
+    principal: '#FFCA28'
+  }
+})
 
 Vue.config.productionTip = false
 

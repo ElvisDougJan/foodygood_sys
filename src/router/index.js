@@ -4,7 +4,7 @@ import Home from '@/views/Home/Home.vue'
 import CadastroUsuario from '@/views/Usuario/router'
 import CadastroInsumos from '@/views/Insumos/router'
 import CadastroProdutos from '@/views/Produtos/router'
-import CadastroMesas from '@/views/Mesas/router'
+import CadastroPedidos from '@/views/Pedidos/router'
 
 Vue.use(Router)
 
@@ -18,7 +18,7 @@ export default new Router({
         CadastroUsuario,
         CadastroInsumos,
         CadastroProdutos,
-        CadastroMesas
+        CadastroPedidos
       ]
     }
   ]
