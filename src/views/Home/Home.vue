@@ -5,7 +5,7 @@
         <v-list-group class="menu-cadastro">
           <v-list-tile slot="activator">
             <v-list-tile-content>
-              <v-list-tile-title>Cadastros</v-list-tile-title>
+              <v-list-tile-title>Menu</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
           <v-list-tile  :to="{name: 'CadastroUsuario'}">
@@ -32,15 +32,7 @@
               <v-list-tile-title class="text-black">Pedidos</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile :to="{name: 'CadastroItens'}">
-            <v-list-tile-action>
-              <v-icon>receipt</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title class="text-black">Itens</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-          <v-list-tile  :to="{name: 'CadastroProdutos'}">
+          <v-list-tile :to="{name: 'CadastroProdutos'}">
             <v-list-tile-action>
               <v-icon>local_dining</v-icon>
             </v-list-tile-action>
@@ -69,9 +61,9 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-footer :fixed="fixed" app style="background-color: black">
+    <!-- <v-footer :fixed="fixed" app style="background-color: black">
       <span style="color:white">&copy; 2018</span>
-    </v-footer>
+    </v-footer> -->
   </v-app>
 </template>
 

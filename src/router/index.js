@@ -18,7 +18,7 @@ export default new Router({
         CadastroUsuario,
         CadastroInsumos,
         CadastroProdutos,
-        CadastroPedidos
+        CadastroPedidos,
       ]
     }
   ]

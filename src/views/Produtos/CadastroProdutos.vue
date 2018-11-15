@@ -9,25 +9,25 @@
       <v-card class="pa-3">
         <v-card class="px-5">
           <v-layout row wrap>
-            <v-flex md5>
+            <v-flex md5 xs12>
               <v-text-field label="Preco" id="id" type="number" v-model="produto.preco"></v-text-field>
             </v-flex>
             <v-spacer></v-spacer>
-            <v-flex md5>
+            <v-flex md5 xs12>
               <v-text-field label="Estoque" id="id" type="number" v-model="produto.estoque"></v-text-field>
             </v-flex>
           </v-layout>
           <v-layout row wrap>
-            <v-flex md5>
+            <v-flex md5 xs12>
               <v-autocomplete label="Tipo" id="id" v-model="produto.tipo" :items="tipos"></v-autocomplete>
             </v-flex>
             <v-spacer></v-spacer>
-            <v-flex md5>
+            <v-flex md5 xs12>
               <v-autocomplete label="Unidade" id="id" v-model="produto.unidade" :items="unidades"></v-autocomplete>
             </v-flex>
           </v-layout>
           <v-layout row wrap>
-            <v-flex md12>
+            <v-flex md12 xs12>
               <v-textarea label="Descricao" id="id" v-model="produto.descricao"></v-textarea>
             </v-flex>
           </v-layout>
