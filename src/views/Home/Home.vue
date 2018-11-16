@@ -8,7 +8,7 @@
               <v-list-tile-title>Menu</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile  :to="{name: 'CadastroUsuario'}">
+          <v-list-tile  :to="{name: 'ListaUsuarios'}">
             <v-list-tile-action>
               <v-icon>person</v-icon>
             </v-list-tile-action>

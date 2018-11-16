@@ -68,8 +68,9 @@
             </v-flex>
           </v-layout>
         </v-card>
-        <v-layout row wrap justify-end>
-          <v-btn color="success mt-3" @click="salvarUsuario()">Salvar</v-btn>
+        <v-layout row wrap justify-space-between>
+          <v-btn color="warning" class="mt-3" @click="$router.push({ name: 'ListaUsuarios' })">Voltar</v-btn>
+          <v-btn color="success" class="mt-3" @click="salvarUsuario()">Salvar</v-btn>
         </v-layout>
       </v-card>
     </v-card>
