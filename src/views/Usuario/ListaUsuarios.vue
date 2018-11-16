@@ -19,6 +19,7 @@
               <v-icon slot="activator" color="green" :to="{ name: 'CadastroUsuario' }" small class="mr-2 mt-3">
                 save
               </v-icon>
+
               <span>Editar usuário</span>
             </v-tooltip>
             <v-tooltip top>
