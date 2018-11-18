@@ -24,12 +24,12 @@
               <span>Editar usuário</span>
             </v-tooltip>
             <v-tooltip top>
-              <v-btn slot="activator" fab small flat>
+              <v-btn slot="activator" fab small flat @click="excluirUsuario(props.item._id)">
                 <v-icon color="red">
                   delete
                 </v-icon>
               </v-btn>
-              <span>Editar usuário</span>
+              <span>Excluir usuário</span>
             </v-tooltip>
           </td>
         </template>
@@ -73,8 +73,10 @@
           .then(res => this.usuarios = res.data)
           .catch(err => console.warn(err))
       },
-      teste(id) {
-        alert(id)
+      excluirUsuario(id) {
+        axios.delete(`${process.env.ROOT_API}deleta-usuario/${id}`)
+          .then(res => this.consultaUsuarios())
+          .catch(err => console.error(`ERRO AO EXCLUIR USUÁRIO: ${err}`))
       }
     },
     async mounted() {
