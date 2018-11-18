@@ -7,17 +7,17 @@
             <v-text-field v-model="search" append-icon="search" label="Pesquisar" single-line hide-details></v-text-field>
           </v-flex>
         </v-card-title>
-        <v-data-table rows-per-page-text="Usuários por página" :headers="headers" :search="search" :items="produtos"
+        <v-data-table rows-per-page-text="Usuários por página" :headers="headers" :search="search" :items="pedidos"
           no-data-text="Não há conteúdo há ser exibido.">
           <template class="align-content-start" slot="items" slot-scope="props">
-            <td class="text-xs-right">{{ props.item.Descricao }}</td>
-            <td class="text-xs-right">{{ props.item.Estoque }}</td>
-            <td class="text-xs-right">{{ props.item.Unidade }}</td>
-            <td class="text-xs-right">{{ props.item.Preco }}</td>
-            <td class="text-xs-right">{{ props.item.Tipo }}</td>
+            <td class="text-xs-right">{{ props.item.numero_pedido }}</td>
+            <td class="text-xs-right">{{ props.item.valor_total }}</td>
+            <td class="text-xs-right">{{ props.item.forma_pagamento }}</td>
+            <td class="text-xs-right">{{ props.item.mesas.numero }}</td>
+            <td class="text-xs-right">{{ props.item.funcionario }}</td>
             <td class="justify-center layout px-0">
               <v-tooltip top>
-                <v-btn slot="activator" fab small flat :to="{ name: 'CadastroProdutos', params: { id: props.item._id } }">
+                <v-btn slot="activator" fab small flat :to="{ name: 'CadastroPedidos', params: { id: props.item._id } }">
                   <v-icon color="green">
                     save
                   </v-icon>
@@ -25,7 +25,7 @@
                 <span>Editar produto</span>
               </v-tooltip>
               <v-tooltip top>
-                <v-btn slot="activator" fab small flat @click="excluirProdutos(props.item._id)">
+                <v-btn slot="activator" fab small flat @click="excluirPedidos(props.item._id)">
                   <v-icon color="red">
                     delete
                   </v-icon>
@@ -38,8 +38,9 @@
             Sua busca por "{{ search }}" não obteve resultados.
           </v-alert>
         </v-data-table>
-        <v-layout row wrap justify-end>
-          <v-btn color="success" class="mb-3 mr-3" @click="$router.push({name: 'CadastroProdutos'})">Novo produto</v-btn>
+        <v-layout row wrap justify-space-between>
+          <v-btn color="warning" :to="{ name: 'CadastroPedidos' }"">Voltar</v-btn>
+          <v-btn color="success" class="mb-3 mr-3" @click="$router.push({name: 'CadastroPedidos'})">Novo produto</v-btn>
         </v-layout>
       </v-card>
     </v-container>
@@ -53,37 +54,39 @@
         return {
           search: '',
           headers: [
-            { text: "Descrição", value: "Descricao" },
-            { text: "Estoque", value: "Estoque" },
-            { text: "Unidade", value: "Unidade" },
-            { text: "Preço", value: "Preco" },
-            { text: "Tipo", value: "Tipo" },
+            { text: "Numero do Pedido", value: "numero_pedido" },
+            { text: "Valor Total", value: "valor_total" },
+            { text: "Forma de pagamento", value: "forma_pagamento" },
+            { text: "Mesas", value: "mesas.numero" },
+            { text: "Funcionário", value: "funcionario" },
             { text: "Ações" }
           ],
-          produto: {
-            Descricao: '',
-            Estoque: '',
-            Unidade: '',
-            Tipo: '',
-            Preco: ''
+          pedido: {
+            numero_pedido: '',
+            valor_total: '',
+            forma_pagamento: '',
+            mesas: {
+              numero: 0
+            },
+            funcionario: ''
           },
-          produtos: []
+          pedidos: []
         }
       },
       methods: {
-        async consultaProdutos() {
-          await axios.get(`${process.env.ROOT_API}produtos`)
-            .then(res => this.produtos = res.data)
-            .catch(err => console.error(`ERRO AO CONSULTAR PRODUTOS: ${err}`))
+        async consultaPedidos() {
+          await axios.get(`${process.env.ROOT_API}pedidos`)
+            .then(res => this.pedidos = res.data)
+            .catch(err => console.error(`ERRO AO CONSULTAR PEDIDOS: ${err}`))
         },
         excluirProdutos(id) {
-          axios.delete(`${process.env.ROOT_API}deleta-produto/${id}`)
-            .then(res => this.consultaProdutos())
-            .catch(err => console.error(`ERRO AO EXCLUIR PRODUTO: ${err}`))
+          axios.delete(`${process.env.ROOT_API}deleta-pedido/${id}`)
+            .then(res => this.consultaPedidos())
+            .catch(err => console.error(`ERRO AO EXCLUIR PEDIDO: ${err}`))
         }
       },
       async mounted() {
-        await this.consultaProdutos()
+        await this.consultaPedidos()
       }
     }
   </script>
