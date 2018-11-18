@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from '@/views/Home/Home.vue'
 import ListaUsuarios from '@/views/Usuario/router'
 import ListaInsumos from '@/views/Insumos/router'
-import CadastroProdutos from '@/views/Produtos/router'
+import ListaProdutos from '@/views/Produtos/router'
 import CadastroPedidos from '@/views/Pedidos/router'
 
 Vue.use(Router)
@@ -16,7 +16,7 @@ export default new Router({
       children: [
         ListaUsuarios,
         ListaInsumos,
-        CadastroProdutos,
+        ListaProdutos,
         CadastroPedidos,
       ]
     }

@@ -32,7 +32,7 @@
               <v-list-tile-title class="text-black">Pedidos</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile :to="{name: 'CadastroProdutos'}">
+          <v-list-tile :to="{name: 'ListaProdutos'}">
             <v-list-tile-action>
               <v-icon>local_dining</v-icon>
             </v-list-tile-action>
