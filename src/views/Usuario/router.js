@@ -12,7 +12,7 @@ export default {
       component: ListaUsuarios
     },
     {
-      path: 'cadastrar',
+      path: 'cadastrar/:id',
       name: 'CadastroUsuario',
       component: CadastroUsuario
     }

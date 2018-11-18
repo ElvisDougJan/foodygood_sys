@@ -7,107 +7,78 @@
           <v-text-field v-model="search" append-icon="search" label="Pesquisar" single-line hide-details></v-text-field>
         </v-flex>
       </v-card-title>
-      <v-data-table rows-per-page-text="Usuários por página" :headers="headers" :items="usuarios" :search="search"
+      <v-data-table rows-per-page-text="Usuários por página" :headers="headers" :search="search" :items="usuarios"
         no-data-text="Não há conteúdo há ser exibido.">
         <template class="align-content-start" slot="items" slot-scope="props">
           <td class="text-xs-right">{{ props.item.nome }}</td>
-          <td class="text-xs-right">{{ props.item.documento }}</td>
+          <td class="text-xs-right">{{ props.item.cpf_cnpj }}</td>
           <td class="text-xs-right">{{ props.item.telefone }}</td>
-          <td class="text-xs-right">{{ props.item.endereco }}</td>
+          <td class="text-xs-right">{{ props.item.tipo }}</td>
           <td class="justify-center layout px-0">
             <v-tooltip top>
-              <v-icon slot="activator" color="green" :to="{ name: 'CadastroUsuario' }" small class="mr-2 mt-3">
-                save
-              </v-icon>
-
+              <v-btn slot="activator" fab small flat :to="{ name: 'CadastroUsuario', params: { id: props.item._id } }">
+                <v-icon color="green">
+                  save
+                </v-icon>
+              </v-btn>
               <span>Editar usuário</span>
             </v-tooltip>
             <v-tooltip top>
-              <v-icon slot="activator" color="red" small class="mr-2 mt-3">
-                delete
-              </v-icon>
-              <span>Apagar usuário?</span>
+              <v-btn slot="activator" fab small flat>
+                <v-icon color="red">
+                  delete
+                </v-icon>
+              </v-btn>
+              <span>Editar usuário</span>
             </v-tooltip>
           </td>
         </template>
-        <v-alert slot="no-results" :value="true" color="error" icon="warning">
+        <v-alert slot="no-results" :value="true" color="error" outline icon="warning">
           Sua busca por "{{ search }}" não obteve resultados.
         </v-alert>
       </v-data-table>
       <v-layout row wrap justify-end>
-        <v-btn color="success" class="mb-3 mr-3" @click="$router.push({ name: 'CadastroUsuario' })">Novo usuário</v-btn>
+        <v-btn color="success" class="mb-3 mr-3" @click="$router.push({name: 'CadastroUsuario'})">Novo usuário</v-btn>
       </v-layout>
     </v-card>
   </v-container>
 </template>
 
 <script>
+  import axios from 'axios'
+
   export default {
     data() {
       return {
+        search: '',
         headers: [
-          { text: "Nome" },
-          { text: "Documento" },
-          { text: "Telefone" },
-          { text: "Endereço" },
-          { text: "Opções" }
-          // {
-          //   text: 'Dessert (100g serving)',
-          //   align: 'left',
-          //   sortable: false,
-          //   value: 'name'
-          // },
-          // { text: 'Calories', value: 'calories' },
-          // { text: 'Fat (g)', value: 'fat' },
-          // { text: 'Carbs (g)', value: 'carbs' },
-          // { text: 'Protein (g)', value: 'protein' },
-          // { text: 'Iron (%)', value: 'iron' }
+          { text: "Nome", value: "nome" },
+          { text: "Documento", value: "cpf_cnpj" },
+          { text: "Telefone", value: "telefone" },
+          { text: "Tipo", value: "tipo" },
+          { text: "Ações" }
         ],
-        usuarios: [
-          {
-            nome: 'Elvis',
-            documento: '45646464646',
-            telefone: '456465465464',
-            endereco: 'rua 01'
-          },
-          {
-            nome: 'Elvis',
-            documento: '45646464646',
-            telefone: '456465465464',
-            endereco: 'rua 01'
-          },
-          {
-            nome: 'Elvis',
-            documento: '45646464646',
-            telefone: '456465465464',
-            endereco: 'rua 01'
-          },
-          {
-            nome: 'Elvis',
-            documento: '45646464646',
-            telefone: '456465465464',
-            endereco: 'rua 01'
-          },
-          {
-            nome: 'Elvis',
-            documento: '45646464646',
-            telefone: '456465465464',
-            endereco: 'rua 01'
-          },
-          {
-            nome: 'Elvis',
-            documento: '45646464646',
-            telefone: '456465465464',
-            endereco: 'rua 01'
-          },
-          {
-            nome: 'Elvis',
-            documento: '45646464646',
-            telefone: '456465465464',
-            endereco: 'rua 01'
-          }
-        ]
+        usuario: {
+          nome: '',
+          cpf_cnpj: '',
+          telefone: '',
+          tipo: ''
+        },
+        usuarios: []
       }
+    },
+    methods: {
+      async consultaUsuarios() {
+        await axios.get(`${process.env.ROOT_API}usuarios`)
+          .then(res => this.usuarios = res.data)
+          .catch(err => console.warn(err))
+      },
+      teste(id) {
+        alert(id)
+      }
+    },
+    async mounted() {
+      await this.consultaUsuarios()
     }
   }
 </script>
