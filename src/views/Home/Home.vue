@@ -8,7 +8,7 @@
               <v-list-tile-title>Menu</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile  :to="{name: 'ListaUsuarios'}">
+          <v-list-tile :to="{name: 'ListaUsuarios'}">
             <v-list-tile-action>
               <v-icon>person</v-icon>
             </v-list-tile-action>
@@ -16,7 +16,7 @@
               <v-list-tile-title class="text-black">Usuário</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile  :to="{name: 'CadastroInsumos'}">
+          <v-list-tile :to="{name: 'ListaInsumos'}">
             <v-list-tile-action>
               <v-icon>extension</v-icon>
             </v-list-tile-action>
@@ -24,7 +24,7 @@
               <v-list-tile-title class="text-black">Insumo</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile  :to="{name: 'CadastroPedidos'}">
+          <v-list-tile :to="{name: 'CadastroPedidos'}">
             <v-list-tile-action>
               <v-icon>tab</v-icon>
             </v-list-tile-action>
@@ -61,9 +61,6 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <!-- <v-footer :fixed="fixed" app style="background-color: black">
-      <span style="color:white">&copy; 2018</span>
-    </v-footer> -->
   </v-app>
 </template>
 
