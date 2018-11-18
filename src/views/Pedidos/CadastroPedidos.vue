@@ -24,7 +24,8 @@
             </v-layout>
           </v-card>
         </v-layout>
-        <v-layout row wrap justify-end>
+        <v-layout row wrap justify-space-between>
+          <v-btn color="success mt-3" :to="{ name: 'ListaPedidos' }">Visualizar pedidos em modo lista</v-btn>
           <v-btn color="success mt-3" @click="adicionarMesa()">Adicionar mesa</v-btn>
         </v-layout>
       </v-card>
@@ -86,7 +87,7 @@
       },
 
       adicionarMesa() {
-        this.mesas.push(this.mesas.length+1)
+        this.mesas.push(this.mesas.length + 1)
       }
     }
   }
