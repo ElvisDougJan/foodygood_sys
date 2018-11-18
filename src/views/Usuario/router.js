@@ -1,7 +1,20 @@
-const CadastroUsuario = () => import('./CadastroUsuario')
+const Index = () => import('./Index.vue')
+const ListaUsuarios = () => import('./ListaUsuarios')
+const CadastroUsuario = () => import('./CadastroUsuario.vue')
 
 export default {
-  path: '/cadastro-usuario',
-  component: CadastroUsuario,
-  name: 'CadastroUsuario'
+  path: '/usuarios',
+  component: Index,
+  children: [
+    {
+      path: 'listar',
+      name: 'ListaUsuarios',
+      component: ListaUsuarios
+    },
+    {
+      path: 'cadastrar/:id',
+      name: 'CadastroUsuario',
+      component: CadastroUsuario
+    }
+  ]
 }
