@@ -73,7 +73,7 @@
 
   export default {
     data: () => ({
-      mesas: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      mesas: [],
       dialog: false
     }),
     methods: {
@@ -88,7 +88,16 @@
 
       adicionarMesa() {
         this.mesas.push(this.mesas.length + 1)
+      },
+
+      async consultaMesas() {
+        await axios.get(`${process.env.ROOT_API}mesas`)
+          .then(res => res.data.forEach(mesa => this.mesas.push(mesa.numero)))
+          .catch(err => console.error(`ERRO AO CONSULTAR MESAS: ${err}`))
       }
+    },
+    mounted() {
+      this.consultaMesas()
     }
   }
 
