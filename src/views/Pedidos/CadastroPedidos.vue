@@ -85,7 +85,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <v-dialog v-model="dialogListaPedidos" scrollable persistent width="900px" transition="dialog-transition">
+    <v-dialog v-model="dialogListaPedidos" scrollable persistent width="680px" transition="dialog-transition">
       <v-card>
         <v-toolbar color="amber lighten-1">
           <v-layout row wrap justify-center>
@@ -200,8 +200,6 @@
       adicionaPedido() {
         this.dialog = true
         this.pedido.mesas = this.idMesaEscolhida
-        // this.pedido.mesas = id
-        // this.numeroMesaEscolhida = numeroMesa
       },
 
       fecharDialog() {
@@ -263,7 +261,7 @@
       async salvarPedido() {
         await axios.post(`${process.env.ROOT_API}salva-pedido`, this.pedido)
           .then(async res => {
-            this.dialog = false
+            this.fecharDialog()
             this.snackbar = true
             let mesas = {
               numero: this.numeroMesaEscolhida,
@@ -275,7 +273,7 @@
               }
             }
             await axios.put(`${process.env.ROOT_API}atualiza-mesa/${this.pedido.mesas}`, mesas)
-              .then(res => console.log(res.data))
+              .then(res => {})
               .catch(err => console.error(`ERRO AO SALVAR MESA DO PEDIDO: ${err}`))
 
           })

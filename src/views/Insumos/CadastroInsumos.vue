@@ -54,7 +54,6 @@
     }),
     methods: {
       async salvarInsumo() {
-        console.log(this.insumo)
         await axios.post(`${process.env.ROOT_API}salva-insumo`, this.insumo).then(res => console.log(res.data))
       },
 
