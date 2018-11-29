@@ -6,6 +6,7 @@ import ListaInsumos from '@/views/Insumos/router'
 import ListaProdutos from '@/views/Produtos/router'
 import CadastroPedidos from '@/views/Pedidos/router'
 
+
 Vue.use(Router)
 
 export default new Router({
@@ -19,6 +20,11 @@ export default new Router({
         ListaProdutos,
         CadastroPedidos,
       ]
+    },
+    {
+      path: 'pdf-view',
+      component: ToPDF,
+      name: 'ToPDF'
     }
   ]
 })
